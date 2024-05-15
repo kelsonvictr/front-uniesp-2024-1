@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
 
 const url = "http://localhost:3000/noticias"
 
-const Noticias = () => {
+const Noticias2 = () => {
 
     const [noticias, setNoticias] = useState([])
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch(url)
-            const data = await res.json()
-
-            setNoticias(data)
+            try {
+                const res = await axios.get(url)
+                setNoticias(res.data)
+            } catch (error) {
+                console.error("Erro ao buscar as notícias:", error)
+            }
         }
         fetchData()
     }, [])
@@ -35,4 +37,4 @@ const Noticias = () => {
   )
 }
 
-export default Noticias
+export default Noticias2
