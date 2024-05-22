@@ -24,7 +24,35 @@ const CadastroNoticia = () => {
       }
 
   return (
-    <div>CadastroNoticia</div>
+    <Box component="form" onSubmit={cadastrarNoticia} noValidate sx={{ mt: 3 }}>
+      <Typography variant="h4" gutterBottom>Cadastrar Notícia</Typography>
+      <TextField
+        label="Título"
+        fullWidth
+        margin="normal"
+        value={titulo}
+        onChange={(e) => setTitulo(e.target.value)}
+      />
+      <TextField
+        label="Subtítulo"
+        fullWidth
+        margin="normal"
+        value={subtitulo}
+        onChange={(e) => setSubtitulo(e.target.value)}
+      />
+      <TextField
+        label="Texto"
+        fullWidth
+        multiline
+        rows={4}
+        margin="normal"
+        value={texto}
+        onChange={(e) => setTexto(e.target.value)}
+      />
+      <Button type="submit" variant="contained" color="primary">
+        Cadastrar
+      </Button>
+    </Box>
   )
 }
 
