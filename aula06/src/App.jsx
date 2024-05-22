@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import VisualizaNoticia from './pages/VisualizaNoticia'
 import NoticiasAxios from './pages/NoticiasAxios'
+import AdminNoticias from './pages/admin/AdminNoticias'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/dpo-lgpd' element={<DpoLgpd />} />
         <Route path='/noticias' element={<NoticiasAxios />} />
         <Route path='/visualiza-noticia/:id' element={<VisualizaNoticia />} />
+        <Route path='/admin-noticias' element={<AdminNoticias />} />
       </Routes>
       </BrowserRouter>
     </>
