@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import VisualizaNoticia from './pages/VisualizaNoticia'
 import NoticiasAxios from './pages/NoticiasAxios'
 import AdminNoticias from './pages/admin/AdminNoticias'
+import CadastroNoticia from './pages/admin/CadastroNoticia'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/noticias' element={<NoticiasAxios />} />
         <Route path='/visualiza-noticia/:id' element={<VisualizaNoticia />} />
         <Route path='/admin-noticias' element={<AdminNoticias />} />
+        <Route path='/cadastrar-noticia' element={<CadastroNoticia />} />
       </Routes>
       </BrowserRouter>
     </>
