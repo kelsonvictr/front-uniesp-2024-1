@@ -15,11 +15,18 @@ const App = () => {
   return (
     <BrowserRouter>
       <Container>
+        {/* Container do MUI é usado para centralizar e ajustar o layout do conteúdo na tela */}
         <Box display="flex" alignItems="center" justifyContent="space-between" p={2}>
+          {/* Box é um componente flexível para layouts, usado aqui para alinhar a logo e a Navbar */}
+          {/* display="flex" transforma o Box em um container flexível */}
+          {/* alignItems="center" alinha os itens verticalmente ao centro */}
+          {/* justifyContent="space-between" distribui o espaço igualmente entre os elementos */}
+          {/* p={2} adiciona um padding interno de 16px (2 * 8px, que é a unidade padrão do MUI) */}
           <img src='uniesp.jpg' width={100} height={100} alt="Uniesp Logo" />
           <Navbar />
         </Box>
         <Box mt={4}>
+          {/* Box é usado aqui para criar um espaçamento superior de 4 unidades (32px) */}
           <Routes>
             <Route path='/' element={<Inicial />} />
             <Route path='/a-faculdade' element={<Afaculdade />} />
