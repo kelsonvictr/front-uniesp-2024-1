@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { Button, List, ListItem, ListItemText, Typography } from '@mui/material'
+import { Button, List, ListItem, ListItemText, Typography, Box, Paper } from '@mui/material'
 
 const url = "http://localhost:3000/noticias"
 
@@ -30,46 +30,27 @@ const AdminNoticias = () => {
   }
 
   return (
-    <div>
+    <Box sx={{ p: 4, backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
       <Typography variant="h4" gutterBottom>
-        {/* Typography é usada para criar um título, com espaçamento inferior automático */}
         Gerenciar Notícias
       </Typography>
-      <Button variant="contained" color="primary" component={Link} to="/cadastrar-noticia">
-        {/* Botão para navegar para a página de cadastro, com estilo "contained" (preenchido) */}
+      <Button variant="contained" color="primary" component={Link} to="/cadastrar-noticia" sx={{ mb: 2 }}>
         Cadastrar Nova Notícia
       </Button>
       <List>
-        {/* List do MUI para exibir uma lista de itens */}
         {noticias.map((noticia) => (
-          <ListItem key={noticia.id} divider>
-            {/* ListItem representa um item da lista, com uma linha divisória */}
-            <ListItemText
-              primary={noticia.titulo}
-              secondary={noticia.subtitulo}
-            />
-            <Button
-              variant="contained"
-              color="secondary"
-              component={Link}
-              to={`/editar-noticia/${noticia.id}`}
-            >
-              {/* Botão para editar a notícia, com cor secundária definida no tema */}
+          <ListItem key={noticia.id} divider component={Paper} sx={{ mb: 2, p: 2, backgroundColor: '#ffffff', borderRadius: '8px' }}>
+            <ListItemText primary={noticia.titulo} secondary={noticia.subtitulo} />
+            <Button variant="contained" color="secondary" component={Link} to={`/editar-noticia/${noticia.id}`} sx={{ mr: 1 }}>
               Editar
             </Button>
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => removerNoticia(noticia.id)}
-              style={{ marginLeft: '10px' }}
-            >
-              {/* Botão para remover a notícia, com cor de erro (vermelho) e margem à esquerda */}
+            <Button variant="contained" color="error" onClick={() => removerNoticia(noticia.id)}>
               Remover
             </Button>
           </ListItem>
         ))}
       </List>
-    </div>
+    </Box>
   )
 }
 

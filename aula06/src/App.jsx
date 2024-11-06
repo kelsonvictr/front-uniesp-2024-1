@@ -8,25 +8,26 @@ import AdminNoticias from './pages/admin/AdminNoticias'
 import CadastroNoticia from './pages/admin/CadastroNoticia'
 import EditarNoticia from './pages/admin/EditarNoticia'
 import Navbar from './components/Navbar'
+import BannerAd from './components/BannerAd' // Importando o componente BannerAd
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Container, Box } from '@mui/material'
+import { Container, Box, CssBaseline } from '@mui/material'
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Container>
-        {/* Container do MUI é usado para centralizar e ajustar o layout do conteúdo na tela */}
-        <Box display="flex" alignItems="center" justifyContent="space-between" p={2}>
-          {/* Box é um componente flexível para layouts, usado aqui para alinhar a logo e a Navbar */}
-          {/* display="flex" transforma o Box em um container flexível */}
-          {/* alignItems="center" alinha os itens verticalmente ao centro */}
-          {/* justifyContent="space-between" distribui o espaço igualmente entre os elementos */}
-          {/* p={2} adiciona um padding interno de 16px (2 * 8px, que é a unidade padrão do MUI) */}
-          <img src='uniesp.jpg' width={100} height={100} alt="Uniesp Logo" />
+      <CssBaseline />
+      {/* CssBaseline aplica uma base de estilo consistente para toda a aplicação */}
+      <Container maxWidth="lg" sx={{ backgroundColor: '#f7f7f7', minHeight: '100vh', padding: '16px', borderRadius: '8px' }}>
+        {/* Container do MUI para limitar a largura e aplicar um estilo de fundo e padding */}
+        <Box display="flex" alignItems="center" justifyContent="space-between" p={2} sx={{ backgroundColor: '#fff', borderRadius: '8px', boxShadow: 1 }}>
+          {/* Box usado para criar um layout flexível com alinhamento central e espaçamento */}
           <Navbar />
         </Box>
+        
+        <BannerAd /> {/* Utilizando o componente de BannerAd */}
+        
         <Box mt={4}>
-          {/* Box é usado aqui para criar um espaçamento superior de 4 unidades (32px) */}
+          {/* Box com espaçamento superior de 4 unidades para separar o banner do conteúdo */}
           <Routes>
             <Route path='/' element={<Inicial />} />
             <Route path='/a-faculdade' element={<Afaculdade />} />

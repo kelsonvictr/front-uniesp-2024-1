@@ -9,7 +9,6 @@ const CadastroNoticia = () => {
   const [titulo, setTitulo] = useState("")
   const [subtitulo, setSubtitulo] = useState("")
   const [texto, setTexto] = useState("")
-
   const navigate = useNavigate()
 
   const cadastrarNoticia = async (e) => {
@@ -23,38 +22,14 @@ const CadastroNoticia = () => {
   }
 
   return (
-    <Box component="form" onSubmit={cadastrarNoticia} noValidate sx={{ mt: 3 }}>
-      {/* Box para layout do formulário, com margem superior */}
+    <Box component="form" onSubmit={cadastrarNoticia} noValidate sx={{ mt: 3, p: 4, backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
       <Typography variant="h4" gutterBottom>
-        {/* Typography para título da página */}
         Cadastrar Notícia
       </Typography>
-      <TextField
-        label="Título"
-        fullWidth
-        margin="normal"
-        value={titulo}
-        onChange={(e) => setTitulo(e.target.value)}
-      />
-      {/* TextField para entrada de texto, com largura total e margem vertical */}
-      <TextField
-        label="Subtítulo"
-        fullWidth
-        margin="normal"
-        value={subtitulo}
-        onChange={(e) => setSubtitulo(e.target.value)}
-      />
-      <TextField
-        label="Texto"
-        fullWidth
-        multiline
-        rows={4}
-        margin="normal"
-        value={texto}
-        onChange={(e) => setTexto(e.target.value)}
-      />
+      <TextField label="Título" fullWidth margin="normal" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
+      <TextField label="Subtítulo" fullWidth margin="normal" value={subtitulo} onChange={(e) => setSubtitulo(e.target.value)} />
+      <TextField label="Texto" fullWidth multiline rows={4} margin="normal" value={texto} onChange={(e) => setTexto(e.target.value)} />
       <Button type="submit" variant="contained" color="primary">
-        {/* Botão para submissão do formulário, com cor primária definida no tema */}
         Cadastrar
       </Button>
     </Box>
